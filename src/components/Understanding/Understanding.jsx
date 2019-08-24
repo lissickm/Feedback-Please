@@ -4,17 +4,22 @@ import React, { Component } from 'react';
 class Understanding extends Component {
 
     state = {
-        understandingVal: ''
+        understanding: ''
     }
 
     handleChange = (event) => {
         this.setState({
-            understandingVal: event.target.value
+            understanding: event.target.value
         })
     }
 
     handleClick = () => {
-        this.props.dispatch({type: 'UNDERSTANDING', payload: this.state.understandingVal});
+        if (this.state.understanding === '') {
+            alert('Please choose an option before going to the next page!');
+            return;
+        }
+        
+        this.props.dispatch({type: 'UNDERSTANDING', payload: this.state.understanding});
         this.props.history.push('/support');
     }
 

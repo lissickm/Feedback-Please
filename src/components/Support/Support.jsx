@@ -14,6 +14,11 @@ class Support extends Component {
     }
 
     handleClick = () => {
+        if (this.state.support === '') {
+            alert('Please choose an option before going to the next page!');
+            return;
+        }
+        
         this.props.dispatch({ type: 'SUPPORT', payload: this.state.support});
         this.props.history.push('/comments');
     }

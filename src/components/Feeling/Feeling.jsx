@@ -14,6 +14,11 @@ class Feeling extends Component {
     }
 
     handleClick = () => {
+        if(this.state.feeling  === '') {
+            alert('Please choose an option before going to the next page!');
+            return;
+        }
+        
         this.props.dispatch({ type: 'FEELING', payload: this.state.feeling });
         this.props.history.push('/understanding');
     }
