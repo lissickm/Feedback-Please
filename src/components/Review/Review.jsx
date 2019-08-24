@@ -17,15 +17,15 @@ class Review extends Component {
     // }
 
     state = {
-        feeling: '5',
-        understanding: '2',
-        support: '4',
-        comments: 'here is some sample comments'
+        feeling: this.props.reduxStore.feelingReducer[0],
+        understanding: this.props.reduxStore.understandingReducer[0],
+        support: this.props.reduxStore.supportReducer[0],
+        comments: this.props.reduxStore.commentsReducer[0]
 
     }
 
     addFeedback() {
-        axios.post('/feedback', this.state.newFeedback)
+        axios.post('/feedback', this.state)
             .then(response => {
                 console.log(response);
             }).catch(error => {
