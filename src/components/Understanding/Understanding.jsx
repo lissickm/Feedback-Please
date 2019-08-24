@@ -4,6 +4,10 @@ import React, { Component } from 'react';
 class Understanding extends Component {
 
 
+    handleClick = () => {
+        this.props.history.push('/support');
+    }
+
     render() {
 
         return (
@@ -20,7 +24,7 @@ class Understanding extends Component {
                     <option value="option5">5 (I've got this!)</option>
                 </select>
 
-                <button>NEXT</button>
+                <button onClick={this.handleClick}>NEXT</button>
 
             </div >
         )
@@ -32,10 +36,10 @@ class Understanding extends Component {
 
 
 
-// const mapStateToProps = (reduxStore) => {
-//     return {
-//         state
-//     }
-// }
+const mapStateToProps = (reduxStore) => {
+    return {
+        reduxStore
+    }
+}
 
-export default connect()(Understanding);
+export default connect(mapStateToProps)(Understanding);

@@ -3,6 +3,10 @@ import React, {Component} from 'react';
 
 class Feeling extends Component {
 
+    handleClick = () => {
+        this.props.history.push('/understanding');
+    }
+
 
     render() {
 
@@ -20,7 +24,7 @@ class Feeling extends Component {
                 <option value="option5">5 (feeling great!)</option>
             </select>
 
-            <button>NEXT</button>
+            <button onClick={this.handleClick}>NEXT</button>
 
             </div >
         )
@@ -32,10 +36,10 @@ class Feeling extends Component {
 
 
 
-// const mapStateToProps = (reduxStore) => {
-//     return {
-//         state
-//     }
-// }
+const mapStateToProps = (reduxStore) => {
+    return {
+        reduxStore
+    }
+}
 
-export default connect()(Feeling);
+export default connect(mapStateToProps)(Feeling);
