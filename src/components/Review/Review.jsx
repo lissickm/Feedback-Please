@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 
 class Review extends Component {
 
-    
+    handleClick = (event) => {
+        this.props.history.push('/success');
+    }
 
     render() {
 
@@ -41,7 +43,7 @@ class Review extends Component {
                 <h3>comments: {this.props.reduxStore.commentsReducer[0]}</h3>
                 <br />
 
-                <button>Submit</button>
+                <button onClick={this.handleClick}>Submit</button>
                 <br/>
 
                 <code>{JSON.stringify(this.props.reduxStore)}</code>
