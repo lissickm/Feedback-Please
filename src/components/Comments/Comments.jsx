@@ -3,9 +3,19 @@ import React, { Component } from 'react';
 
 class Comments extends Component {
 
-    
+    state = {
+        comments: ''
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            comments: event.target.value
+        })
+    }
+
 
     handleClick = () => {
+        this.props.dispatch({ type: 'COMMENTS', payload: this.state.comments });
         this.props.history.push('/review');
     }
 
@@ -17,7 +27,7 @@ class Comments extends Component {
 
                 <br />
 
-                <input type="text"/>
+                <input type="text" onChange={this.handleChange} />
 
                 <button onClick={this.handleClick}>NEXT</button>
 
