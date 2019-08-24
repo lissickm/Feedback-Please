@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Review extends Component {
 
     handleClick = (event) => {
+        this.addFeedback();
         this.props.history.push('/success');
     }
 
@@ -17,9 +19,18 @@ class Review extends Component {
     state = {
         feeling: '5',
         understanding: '2',
-        support: '4'
+        support: '4',
         comments: 'here is some sample comments'
 
+    }
+
+    addFeedback() {
+        axios.post('/feedback', this.state.newFeedback)
+            .then(response => {
+                console.log(response);
+            }).catch(error => {
+                console.log(error);
+            })
     }
 
     render() {
