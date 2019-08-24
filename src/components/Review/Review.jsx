@@ -7,6 +7,21 @@ class Review extends Component {
         this.props.history.push('/success');
     }
 
+    // state ={
+    //     feeling: { this.props.reduxStore.feelingReducer[0] },
+    //     understanding: { this.props.reduxStore.understandingReducer[0] },
+    //     support: { this.props.reduxStore.supportReducer[0] },
+    //     comments: { this.props.reduxStore.commentsReducer[0] }
+    // }
+
+    state = {
+        feeling: '5',
+        understanding: '2',
+        support: '4'
+        comments: 'here is some sample comments'
+
+    }
+
     render() {
 
         // let feelingRating = this.props.reduxStore.feelingReducer.map((feeling) => {

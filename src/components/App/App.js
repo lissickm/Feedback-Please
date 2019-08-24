@@ -21,16 +21,22 @@ class App extends Component {
           </header>
           <br />
 
-        <Route exact path='/' component={Feeling}/>
-        <Route path='/understanding' component={Understanding}/>
-        <Route path='/support' component={Support}/>
-        <Route path='/comments' component={Comments}/>
-        <Route path='/review' component={Review}/>
-        <Route path='/success' component={Success}/>
+          <Route exact path='/' component={Feeling} />
+          <Route path='/understanding' component={Understanding} />
+          <Route path='/support' component={Support} />
+          <Route path='/comments' component={Comments} />
+          <Route path='/review' component={Review} />
+          <Route path='/success' component={Success} />
         </div>
       </Router >
     );
   }
 }
 
-export default App;
+const mapStateToProps = (reduxStore) => {
+  return {
+    reduxStore
+  }
+}
+
+export default connect(mapStateToProps)(App);
