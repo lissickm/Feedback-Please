@@ -4,17 +4,17 @@ import React, { Component } from 'react';
 class Support extends Component {
 
     state = {
-        supportVal: ''
+        support: ''
     }
 
     handleChange = (event) => {
         this.setState({
-            supportVal: event.target.value
+            support: event.target.value
         })
     }
 
     handleClick = () => {
-        this.props.dispatch({ type: 'SUPPORT', payload: this.state.supportVal});
+        this.props.dispatch({ type: 'SUPPORT', payload: this.state.support});
         this.props.history.push('/comments');
     }
 

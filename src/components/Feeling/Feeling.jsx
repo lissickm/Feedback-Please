@@ -4,17 +4,17 @@ import React, { Component } from 'react';
 class Feeling extends Component {
 
     state = {
-        feelingVal: ''
+        feeling: ''
     }
 
     handleChange = (event) => {
         this.setState({
-            feelingVal: event.target.value
+            feeling: event.target.value
         })
     }
 
     handleClick = () => {
-        this.props.dispatch({ type: 'FEELING', payload: this.state.feelingVal });
+        this.props.dispatch({ type: 'FEELING', payload: this.state.feeling });
         this.props.history.push('/understanding');
     }
 
