@@ -3,12 +3,22 @@ import React, { Component } from 'react';
 
 class Review extends Component {
 
+    
 
     render() {
 
+        let feelingRating = this.props.reduxStore.feelingReducer.map((feeling) => {
+            return (<p>{feeling}</p>)
+        })
+       
+
         return (
             <div>
-                <h1>IN REVIEW</h1>
+                <h1>Review Your Feedback:</h1>
+                <br/>
+                <h3>feeling score: {feelingRating}</h3>
+
+                <code>{JSON.stringify(this.props.reduxStore)}</code>
             </div >
         )
 
@@ -19,10 +29,10 @@ class Review extends Component {
 
 
 
-// const mapStateToProps = (reduxStore) => {
-//     return {
-//         state
-//     }
-// }
+const mapStateToProps = (reduxStore) => {
+    return {
+        reduxStore
+    }
+}
 
-export default connect()(Review);
+export default connect(mapStateToProps)(Review);

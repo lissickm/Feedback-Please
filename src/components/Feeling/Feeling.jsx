@@ -3,12 +3,26 @@ import React, {Component} from 'react';
 
 class Feeling extends Component {
 
+    state = {
+        feelingVal: ''
+    }
+    
+    handleChange = (event) => {
+        this.setState({
+            feelingVal: event.target.value
+        })
+    }
+
     handleClick = () => {
+        this.props.dispatch({type: 'FEELING', payload: this.state.feelingVal});
         this.props.history.push('/understanding');
     }
 
 
     render() {
+
+        console.log(this.state);
+        
 
         return(
             <div>
@@ -16,12 +30,13 @@ class Feeling extends Component {
             
             <br />
 
-            <select name="ratings">
-                <option value="option1">1 (very stressed)</option>
-                <option value="option2">2</option>
-                <option value="option3">3 (doing ok)</option>
-                <option value="option4" selected>4</option>
-                <option value="option5">5 (feeling great!)</option>
+            <select name="ratings" onChange={this.handleChange}>
+                <option disabled selected value> -- select an option -- </option>
+                <option value="1">1 (very stressed)</option>
+                <option value="2">2</option>
+                <option value="3">3 (doing ok)</option>
+                <option value="4">4</option>
+                <option value="5">5 (feeling great!)</option>
             </select>
 
             <button onClick={this.handleClick}>NEXT</button>
