@@ -1,18 +1,24 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import '../App/App.css';
 
 class Feeling extends Component {
 
+    //set the local state to an empty string to clear old data
     state = {
         feeling: ''
     }
 
+    // a function to handle the change in the option box
     handleChange = (event) => {
         this.setState({
             feeling: event.target.value
         })
     }
 
+    // a function to dispatch a feeling action
+    // send users to understanding page after click and dispatch
+    // make sure the user has to enter a value before the click
     handleClick = () => {
         if(this.state.feeling  === '') {
             alert('Please choose an option before going to the next page!');
@@ -28,14 +34,14 @@ class Feeling extends Component {
 
         console.log(this.state);
 
-
         return (
             <div>
-                <h1>How are you feeling today?</h1>
-
+                <div class="question">
+                How are you feeling today?
+                </div>
                 <br />
 
-                <select name="ratings" defaultValue={'DEFAULT'} onChange={this.handleChange}>
+                <select class="ratings" defaultValue={'DEFAULT'} onChange={this.handleChange}>
                     <option value="DEFAULT" disabled> -- select an option -- </option>
                     <option value="1">1 (very stressed)</option>
                     <option value="2">2</option>
@@ -43,8 +49,9 @@ class Feeling extends Component {
                     <option value="4">4</option>
                     <option value="5">5 (feeling great!)</option>
                 </select>
+                <br/>
 
-                <button onClick={this.handleClick}>NEXT</button>
+                <button className="btn btn-secondary btn-lg checkoutBtn" onClick={this.handleClick}>NEXT</button>
 
             </div >
         )
@@ -55,7 +62,7 @@ class Feeling extends Component {
 }
 
 
-
+// make the reduxstore available
 const mapStateToProps = (reduxStore) => {
     return {
         reduxStore

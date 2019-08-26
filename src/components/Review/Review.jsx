@@ -4,26 +4,22 @@ import axios from 'axios';
 
 class Review extends Component {
 
-    handleClick = (event) => {
-        this.addFeedback();
-        this.props.history.push('/success');
-    }
-
-    // state ={
-    //     feeling: { this.props.reduxStore.feelingReducer[0] },
-    //     understanding: { this.props.reduxStore.understandingReducer[0] },
-    //     support: { this.props.reduxStore.supportReducer[0] },
-    //     comments: { this.props.reduxStore.commentsReducer[0] }
-    // }
-
+    // pull the information we need to display from redux store
     state = {
         feeling: this.props.reduxStore.feelingReducer[0],
         understanding: this.props.reduxStore.understandingReducer[0],
         support: this.props.reduxStore.supportReducer[0],
         comments: this.props.reduxStore.commentsReducer[0]
-
     }
 
+    // a function to call a function to run a post route
+    // send users to success page after click
+    handleClick = (event) => {
+        this.addFeedback();
+        this.props.history.push('/success');
+    }
+
+    // make a post request to the server using axios
     addFeedback() {
         axios.post('/feedback', this.state)
             .then(response => {
@@ -35,10 +31,12 @@ class Review extends Component {
 
     render() {
 
+        // *** I originally used .map, but changed my mind
+        // *** I thought that it didn't make sense if the array only had 1 number
+
         // let feelingRating = this.props.reduxStore.feelingReducer.map((feeling) => {
         //     return (<p>{feeling}</p>)
         // })
-
 
         // let understandingRating = this.props.reduxStore.understandingReducer.map((understanding) => {
         //     return (<p>{understanding}</p>)
@@ -54,6 +52,7 @@ class Review extends Component {
 
         return (
             <div>
+
                 <h1>Review Your Feedback:</h1>
                 <br/>
                 
@@ -69,20 +68,15 @@ class Review extends Component {
                 <h3>comments: {this.props.reduxStore.commentsReducer[0]}</h3>
                 <br />
 
-                <button onClick={this.handleClick}>Submit</button>
-                <br/>
-
-                <code>{JSON.stringify(this.props.reduxStore)}</code>
+                <button id="reviewbtn" className="btn btn-secondary btn-lg checkoutBtn" onClick={this.handleClick}>Submit</button>
+            
             </div >
         )
-
-
-
     }
 }
 
 
-
+// make the reduxstore available
 const mapStateToProps = (reduxStore) => {
     return {
         reduxStore

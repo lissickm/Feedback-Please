@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -9,18 +8,24 @@ import Support from "../Support/Support";
 import Comments from "../Comments/Comments";
 import Review from "../Review/Review";
 import Success from "../Success/Success";
+import './bootstrap copy.css';
+
 
 class App extends Component {
   render() {
     return (
       <Router>
+
+        {/* this header will exist on all the pages 
+        even after the route changes */}
         <div className="App">
           <header className="App-header">
             <h1 className="App-title">Feedback!</h1>
-            <h4><i>Do not forget it!</i></h4>
+            <h4><i class="tagline">Do not forget it!</i></h4>
           </header>
           <br />
 
+          {/* make some routes for the different feedback areas */}
           <Route exact path='/' component={Feeling} />
           <Route path='/understanding' component={Understanding} />
           <Route path='/support' component={Support} />
@@ -33,6 +38,7 @@ class App extends Component {
   }
 }
 
+// just in case...make the reduxstore availavle
 const mapStateToProps = (reduxStore) => {
   return {
     reduxStore

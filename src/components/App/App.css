@@ -7,13 +7,47 @@
   min-height: 70px;
   padding: 20px;
   color: white;
+  
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 150px;
 }
 
 .App-intro {
-  font-size: large;
+  font-size: 100px;
+  
 }
 
+.question {
+  font-size: 60px;
+  padding-top: 100px;
+}
+
+.ratings {
+  width: 400px;
+  height: 40px;
+  margin-bottom: 50px;
+}
+
+.comments {
+  width: 800px;
+  height: 40px;
+  margin-bottom: 50px;
+}
+
+.review {
+  width: 800px;
+  height: 40px;
+  margin-bottom: 80px;
+}
+
+#reviewbtn {
+  margin-top: 80px;
+}
+
+.success {
+  font-size: 60px;
+  padding-top: 50px;
+  margin-bottom: 50px;
+}

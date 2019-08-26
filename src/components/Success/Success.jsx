@@ -3,33 +3,28 @@ import React, { Component } from 'react';
 
 class Success extends Component {
 
+    // make a function that will send the user back to the original page after click
     handleClick = (event) => {
         this.props.history.push('/');
     }
+
 
     render() {
 
         return (
             <div>
-                <h1>Your data has been submitted</h1>
+
+                <div class="success">Your data has been submitted.</div>
+                
+                <div class="success">Thank You!</div>
                 <br/>
-                <h1>Thank You!</h1>
-                <br/>
-                <button onClick={this.handleClick}>Leave New Feedback</button>
+
+                <button className="btn btn-secondary btn-lg checkoutBtn" onClick={this.handleClick}>Leave New Feedback</button>
+
             </div >
         )
-
-
-
     }
 }
 
-
-
-// const mapStateToProps = (reduxStore) => {
-//     return {
-//         state
-//     }
-// }
 
 export default connect()(Success);
